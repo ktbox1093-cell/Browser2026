@@ -1,7 +1,8 @@
-<project name="E72Browser" default="jar" basedir=".">
+<project name="E72Browser" default="all" basedir=".">
     <target name="clean">
         <delete dir="build"/>
         <delete file="E72Browser.jar"/>
+        <delete file="E72Browser.jad"/>
     </target>
 
     <target name="compile" depends="clean">
@@ -18,6 +19,17 @@
         <jar destfile="E72Browser.jar" manifest="Manifest.txt">
             <fileset dir="build/classes"/>
         </jar>
+        <!-- Generamos automáticamente el archivo .jad obligatorio para Symbian -->
+        <length file="E72Browser.jar" property="jar.size"/>
+        <echo file="E72Browser.jad">MIDlet-Name: Nokia E72 Browser
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Homebrew
+MIDlet-Jar-URL: E72Browser.jar
+MIDlet-Jar-Size: ${jar.size}
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+</echo>
     </target>
-</project>
 
+    <target name="all" depends="jar"/>
+</project>
