@@ -1,1 +1,23 @@
+<project name="E72Browser" default="jar" basedir=".">
+    <target name="clean">
+        <delete dir="build"/>
+        <delete file="E72Browser.jar"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="." 
+               includes="BrowserMIDlet.java"
+               destdir="build/classes" 
+               source="1.3" 
+               target="1.3" 
+               includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="E72Browser.jar" manifest="Manifest.txt">
+            <fileset dir="build/classes"/>
+        </jar>
+    </target>
+</project>
 
