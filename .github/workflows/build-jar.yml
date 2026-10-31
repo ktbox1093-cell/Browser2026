@@ -22,7 +22,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y ant
 
     - name: Compilar y empaquetar con Ant
-      run: ant jar
+      run: ant all
 
     - name: Subir artefactos (JAR y JAD)
       uses: actions/upload-artifact@v4
