@@ -6,10 +6,12 @@
 
     <target name="compile" depends="clean">
         <mkdir dir="build/classes"/>
-        <!-- Compilación estándar sin forzar versiones obsoletas que den error en GitHub -->
+        <!-- Forzamos source y target 1.3 para que el bytecode sea compatible con el E72 -->
         <javac srcdir="." 
                includes="BrowserMIDlet.java"
                destdir="build/classes" 
+               source="1.3" 
+               target="1.3" 
                includeantruntime="false"/>
     </target>
 
