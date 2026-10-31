@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Created-By: 1.8.0 (Oracle Corporation)
 MIDlet-1: Nokia E72 Browser, , BrowserMIDlet
 MIDlet-Name: Nokia E72 Browser
 MIDlet-Vendor: Homebrew
