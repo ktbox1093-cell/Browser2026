@@ -1,6 +1,8 @@
+Manifest-Version: 1.0
 MIDlet-1: Nokia E72 Browser, , BrowserMIDlet
 MIDlet-Name: Nokia E72 Browser
 MIDlet-Vendor: Homebrew
 MIDlet-Version: 1.0.0
 MicroEdition-Configuration: CLDC-1.1
 MicroEdition-Profile: MIDP-2.0
+
