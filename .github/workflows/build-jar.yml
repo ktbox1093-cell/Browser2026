@@ -24,8 +24,10 @@ jobs:
     - name: Compilar y empaquetar con Ant
       run: ant jar
 
-    - name: Subir artefacto JAR
+    - name: Subir artefactos (JAR y JAD)
       uses: actions/upload-artifact@v4
       with:
-        name: nokia-e72-browser-jar
-        path: E72Browser.jar
+        name: nokia-e72-browser-files
+        path: |
+          E72Browser.jar
+          E72Browser.jad
