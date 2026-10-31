@@ -1,17 +1,15 @@
-<project name="E72Browser" default="jar" basedir=".">
+<project name="E72Browser" default="all" basedir=".">
     <target name="clean">
         <delete dir="build"/>
         <delete file="E72Browser.jar"/>
+        <delete file="E72Browser.jad"/>
     </target>
 
     <target name="compile" depends="clean">
         <mkdir dir="build/classes"/>
-        <!-- Forzamos source y target 1.3 para que el bytecode sea compatible con el E72 -->
         <javac srcdir="." 
                includes="BrowserMIDlet.java"
                destdir="build/classes" 
-               source="1.3" 
-               target="1.3" 
                includeantruntime="false"/>
     </target>
 
@@ -19,5 +17,18 @@
         <jar destfile="E72Browser.jar" manifest="Manifest.txt">
             <fileset dir="build/classes"/>
         </jar>
+        
+        <!-- Generamos el archivo .jad obligatorio para Symbian S60v3 -->
+        <length file="E72Browser.jar" property="jar.size"/>
+        <echo file="E72Browser.jad">MIDlet-Name: Nokia E72 Browser
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Homebrew
+MIDlet-Jar-URL: E72Browser.jar
+MIDlet-Jar-Size: ${jar.size}
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+</echo>
     </target>
+
+    <target name="all" depends="jar"/>
 </project>
